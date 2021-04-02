@@ -287,8 +287,9 @@
 
                 if ($sessionTypeId) {
                     $get_MonthlySession = adminModel::checkMonthlySession ($degree_id, $subject_id, $sessionTypeId, $calendarYear, $month, $connect);
+                    $check_numOfSessions = mysqli_fetch_assoc($get_MonthlySession);
 
-                    if ($get_MonthlySession) {
+                    if ($numOfSessions == $$check_numOfSessions['numOfSessions']) {
                         header('Location:../../view/admin/aMSessionUpdateFailed.php');
                     }
                     else {
